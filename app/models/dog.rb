@@ -14,5 +14,11 @@
 #
 
 class Dog < ApplicationRecord
-    
+    include PgSearch
+    pg_search_scope :whose_name_starts_with,
+                    :against => :name, :breed
+                    :using => {
+                        :tsearch => {:prefix => true}
+                    }
+    validates :name, :gender, :age, :breed, :image_url, presence: true
 end
