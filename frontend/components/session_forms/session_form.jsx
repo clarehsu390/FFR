@@ -18,7 +18,7 @@ export default class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state).then(this.setState({username: "", password: ""}));
+        this.props.processForm(this.state).then(this.setState({username: "", password: ""}));
 
     }
 
@@ -32,7 +32,7 @@ export default class SessionForm extends React.Component {
             <label>Password:
                 <input type="password" value={this.state.password} onChange={this.handleChange('password')}/>
                 </label>
-                <input type="submit"/>
+                <input type="submit" value={this.props.formType}/>
             </form>
             );
         }
