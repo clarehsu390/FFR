@@ -1,9 +1,9 @@
 import React from 'react';
-import SessionFormContainer from './session_forms/session_container';
+import SignUpContainer from './session_forms/signup_container';
 class App extends React.Component {
     render() {
         return (
-            <SessionFormContainer/>
+            <SignUpContainer/>
         );
     }
 }
