@@ -4,8 +4,10 @@ const sessionReducer = (state = null, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            return action.user;
+            return action.currentUser;
         default:
             return state;
     }
 };
+
+export default sessionReducer;
