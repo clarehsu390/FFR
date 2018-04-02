@@ -9,6 +9,8 @@ export default class SessionForm extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+
     }
 
     handleChange(field) {
@@ -22,6 +24,26 @@ export default class SessionForm extends React.Component {
 
     }
 
+    // componentWillUnmount() {
+    //     this.props.clearErrors();
+    // }
+
+    renderErrors() {
+        console.log(this.props.errors)
+        return (
+            <ul>
+              {this.props.errors.map((error, i) => {
+                return (
+                  <li className="error" key={i}>
+                    {error}
+                  </li>
+                );
+              })
+            }
+            </ul>
+          );
+    }
+
     render() {
         if (!this.props.loggedIn) {
 
@@ -32,7 +54,9 @@ export default class SessionForm extends React.Component {
             <label>Password:
                 <input type="password" value={this.state.password} onChange={this.handleChange('password')}/>
                 </label>
+                {this.renderErrors()}
                 <input type="submit" value={this.props.formType}/>
+                
             </form>
             );
         }
