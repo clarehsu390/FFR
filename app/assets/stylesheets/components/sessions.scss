@@ -1,0 +1,59 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$summer_sky: #286da8;
+$warm_peach: #cd5360;
+$field: #b37d4e;
+$breeze: #438496;
+
+
+.session-container {
+    display: flex;
+    font-family: 'Gugi', cursive;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vh;
+    background-image: image-url('splash_image.jpg');
+    background-size: cover;
+
+}
+.session-container h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    padding: 10px;
+}
+.session-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    width: 25%;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    background: black;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+.session-form input {
+    padding: 10px;
+    font-size: 18px;
+}
+.submit-button {
+    color: white;
+    background-color: $breeze;
+    border-radius: 10px;
+    height: 30px;
+    border: none;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+}
+.submit-button:hover {
+    cursor: pointer;
+    background-color: $summer_sky;
+}

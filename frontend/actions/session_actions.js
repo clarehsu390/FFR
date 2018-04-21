@@ -10,13 +10,13 @@ export const receiveCurrentUser = currentUser => ({
 export const signup = user => dispatch => {
     return APIUtil.signup(user).then(
         currentUser => dispatch(receiveCurrentUser(currentUser))
-    ).fail(errors => dispatch(receiveErrors(errors)));
+    ).fail(errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const login = user => dispatch => {
     return APIUtil.login(user).then(
         currentUser => dispatch(receiveCurrentUser(currentUser))
-    ).fail(errors => dispatch(receiveErrors(errors)));
+    ).fail(errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const logout = user => dispatch => {

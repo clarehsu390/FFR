@@ -24,9 +24,9 @@ export default class SessionForm extends React.Component {
 
     }
 
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // }
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
 
     renderErrors() {
         console.log(this.props.errors)
@@ -47,7 +47,11 @@ export default class SessionForm extends React.Component {
     render() {
         if (!this.props.loggedIn) {
 
-        return (<form onSubmit={this.handleSubmit}>
+        return (
+        <div className="session-container">
+        <h1>Share your love for dogs</h1>
+        <form className="session-form"onSubmit={this.handleSubmit}>
+                <h2>Sign up here</h2>
             <label>Username:
                 <input type="text" value={this.state.username} onChange={this.handleChange('username')}/>
                 </label>
@@ -55,9 +59,10 @@ export default class SessionForm extends React.Component {
                 <input type="password" value={this.state.password} onChange={this.handleChange('password')}/>
                 </label>
                 {this.renderErrors()}
-                <input type="submit" value={this.props.formType}/>
+                <input class="submit-button" type="submit" value={this.props.formType}/>
                 
             </form>
+            </div>
             );
         }
     }
