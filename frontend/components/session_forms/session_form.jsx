@@ -10,6 +10,7 @@ export default class SessionForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.renderHeader = this.renderHeader.bind(this);
 
     }
 
@@ -43,7 +44,10 @@ export default class SessionForm extends React.Component {
             </ul>
           );
     }
-
+    renderHeader() {
+       return this.props.formType === 'login' ? 
+        <h2>Login here</h2> : <h2>Sign up here</h2>
+    }
     render() {
         if (!this.props.loggedIn) {
 
@@ -51,7 +55,7 @@ export default class SessionForm extends React.Component {
         <div className="session-container">
         <h1>Share your love for dogs</h1>
         <form className="session-form"onSubmit={this.handleSubmit}>
-                <h2>Sign up here</h2>
+                {this.renderHeader()}
             <label>Username:
                 <input type="text" value={this.state.username} onChange={this.handleChange('username')}/>
                 </label>
