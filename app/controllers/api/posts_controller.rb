@@ -1,9 +1,13 @@
 class Api::PostsController < ApplicationController
-    def new
-    end
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.new(post_params)
+        @post.user_id = current_user.id
+        if @post.save
+            render 'api/posts/index'
+        else
+            render json: @post.errors.full_messages
+        end
     end
 
     def show
@@ -11,13 +15,17 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        @post = Post.all
-    end
-
-    def edit
+        @posts = Post.all
     end
 
     def update
+        @post = current_user.posts.find(params[:id])
+        if @post.update_attributes(post_params)
+            render 'api/posts/show'
+        else
+            render json: @post.errors.full_messages
+        end
+
     end
 
     private

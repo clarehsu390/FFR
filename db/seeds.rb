@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create({username: 'clare', password: '123456'})
+user2 = User.create({username: 'guest', password: '123456'})
+post1 = Post.create({title: 'New post', body: 'This is a new post', user_id: user1.id})
