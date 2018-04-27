@@ -4,6 +4,7 @@ import { signup, login, logout, receiveCurrentUser } from './actions/session_act
 import configureStore from './store/store';
 import { dispatch } from 'redux';
 import Root from './components/root.jsx';
+import { fetchSinglePost } from './util/posts_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
     window.store = store;
-    window.receiveCurrentUser = receiveCurrentUser;
     window.dispatch = dispatch;
     ReactDOM.render(<Root store={store}/>, root);
     window.login = login;
